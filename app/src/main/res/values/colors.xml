@@ -5,10 +5,16 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="purple">#800080</color>
-    <color name="red">#FF0000</color>
     <color name="blue">#0000FF</color>
-    <color name="light_gray">#F5F5F5</color>
+
+    <color name="primary">#6200EE</color> <!-- Deep Purple -->
+    <color name="primary_variant">#3700B3</color>
+    <color name="secondary">#03DAC5</color> <!-- Teal -->
+    <color name="background">#FFFFFF</color> <!-- White Background -->
+    <color name="light_gray">#F5F5F5</color> <!-- Soft Gray -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#D32F2F</color> <!-- SOS Button -->
+
 </resources>

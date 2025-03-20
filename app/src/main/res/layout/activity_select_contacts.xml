@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center_horizontal">
+    android:background="#F5F5F5"
+    android:padding="16dp">
 
     <!-- Button to Select Contacts -->
     <Button
@@ -12,20 +12,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select Contact"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/purple_500"
-        android:textColor="@color/white"
-        android:padding="16dp"
-        android:textAllCaps="false" />
+        android:textSize="18sp"
+        android:padding="10dp"/>
 
     <!-- ListView to Display Selected Contacts -->
     <ListView
         android:id="@+id/contact_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:padding="16dp"
-        android:background="@drawable/border_background" />
+        android:textSize="14sp"
+        android:layout_marginTop="10dp" />
 
     <!-- Button to Save Contacts -->
     <Button
@@ -33,10 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save Contacts"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/purple_500"
-        android:textColor="@color/white"
-        android:padding="16dp"
-        android:textAllCaps="false" />
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:layout_marginTop="10dp" />
 
 </LinearLayout>

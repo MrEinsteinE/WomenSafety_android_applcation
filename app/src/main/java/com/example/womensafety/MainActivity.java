@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.first).setOnClickListener(this);
         findViewById(R.id.second).setOnClickListener(this);
 
+
         // Initialize permissions and notification channel
         setupPermissions();
         createNotificationChannel();
