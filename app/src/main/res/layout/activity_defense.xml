@@ -5,29 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DefenseActivity">
+
+    <!-- Decorative oval background in top-left corner -->
     <View
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/top_left_corner_oval"/>
 
-
-
-    <WebView
-        android:layout_centerInParent="true"
+    <!-- LinearLayout to hold multiple images, replacing the WebView -->
+    <LinearLayout
+        android:id="@+id/defense_images_layout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:id="@+id/webView"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
 
+        <!-- First image -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/self_defense_image1"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Second image -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/self_defense_image2"/>
+
+    </LinearLayout>
+
+    <!-- Updated TextView positioned below the images -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This video shows some techniques of self defense"
-        android:layout_below="@id/webView"
+        android:text="These images demonstrate some self-defense techniques"
+        android:layout_below="@id/defense_images_layout"
         android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        />
-
-
-
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

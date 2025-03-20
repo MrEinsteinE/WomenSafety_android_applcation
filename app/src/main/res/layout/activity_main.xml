@@ -52,7 +52,8 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_fake_call"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:contentDescription="Fake Call Icon" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -67,7 +68,7 @@
 
         <!-- Self-Defense -->
         <LinearLayout
-            android:id="@+id/second"
+            android:id="@+id/first"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -133,7 +134,7 @@
 
         <!-- Basic Laws -->
         <LinearLayout
-            android:id="@+id/first"
+            android:id="@+id/second"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"

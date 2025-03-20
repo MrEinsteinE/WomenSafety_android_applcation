@@ -52,6 +52,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".SelectContactsActivity" />
+        <activity
+            android:name=".FakeCallActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".MainActivity" />
 
         <service
