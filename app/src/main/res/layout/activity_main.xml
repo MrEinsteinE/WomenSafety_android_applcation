@@ -7,118 +7,184 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-
-    <View
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:onClick="PopupMenu"
-        android:clickable="true"
-        android:focusable="true"
-        android:layout_margin="20dp"
-        android:background="@drawable/ic_baseline_more_vert_24"/>
-
-
-    <RelativeLayout
+    <!-- Grid Layout with 4 Sections -->
+    <GridLayout
+        android:id="@+id/grid_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:padding="16dp">
 
+        <!-- Fake Call -->
         <LinearLayout
-            android:gravity="center"
-            android:layout_marginRight="50dp"
-            android:id="@+id/first"
-            android:layout_width="150dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_height="150dp"
+            android:id="@+id/fake_call"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:background="@drawable/oval_purple_full"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_gravity="center"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/self_defence"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Self Defence"
-                android:layout_gravity="center"/>
-        </LinearLayout>
-        <LinearLayout
+            android:orientation="vertical"
             android:gravity="center"
-            android:id="@+id/second"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
             android:clickable="true"
             android:focusable="true"
-            android:layout_toRightOf="@id/first"
-            android:background="@drawable/oval_purple_full" android:orientation="vertical">
+            android:layout_margin="12dp">
 
             <ImageView
-                android:layout_gravity="center"
-                android:layout_width="53dp"
-                android:layout_height="50dp"
-                android:src="@drawable/law_image" />
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_fake_call"
+                android:contentDescription="Fake Call" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Basic Laws" />
+                android:text="Fake Call"
+                android:textAlignment="center"/>
         </LinearLayout>
 
+        <!-- Safe Locations -->
+        <LinearLayout
+            android:id="@+id/nearest_safe_locations"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:background="@drawable/oval_purple_full"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_margin="12dp">
 
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_location"
+                android:contentDescription="Safe Locations" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Safe Locations"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+        <!-- Basic Laws -->
+        <LinearLayout
+            android:id="@+id/first"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:background="@drawable/oval_purple_full"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_margin="12dp">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/law_image"
+                android:contentDescription="Basic Laws" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Basic Laws"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+        <!-- Self Defense -->
+        <LinearLayout
+            android:id="@+id/second"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:background="@drawable/oval_purple_full"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_margin="12dp">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/self_defence"
+                android:contentDescription="Self Defense" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Self Defense"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+    </GridLayout>
+
+    <!-- SOS Message Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grid_layout"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:gravity="center">
 
         <TextView
+            android:id="@+id/textNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/first"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
             android:textSize="18sp"
-            android:text="SOS Will Be Sent To\n"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/textNum"/>
+            android:text="SOS Will Be Sent To"
+            android:textStyle="bold"/>
 
+        <TextView
+            android:id="@+id/selected_contacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="No contacts selected"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="200dp"
-            android:layout_below="@id/textNum"
-            android:layout_height="60dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="70dp"
-            app:cornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="startServiceV"
-            app:layout_constraintStart_toStartOf="parent"
-            android:backgroundTint="#ffffff"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/start"
-            android:textColor="@color/black"
-            android:text="Start Alert"/>
+    <!-- Select Contacts Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/select_contacts"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/textNum"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/white"
+        android:text="Select Contacts"
+        android:textColor="@color/black"
+        app:cornerRadius="10dp"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="70dp"
-            android:id="@+id/stop"
-            app:layout_constraintTop_toBottomOf="@id/start"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_below="@id/start"
-            app:cornerRadius="10dp"
-            android:backgroundTint="#ffffff"
-            android:onClick="stopService"
-            android:text="Stop Alert"/>
+    <!-- Alert Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/select_contacts"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        android:gravity="center">
 
+        <Button
+            android:id="@+id/start_service_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Alert"
+            android:onClick="startServiceV" />
 
-    </RelativeLayout>
+        <Button
+            android:id="@+id/stop_service_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop Alert"
+            android:onClick="stopService" />
+
+    </LinearLayout>
+
 
 
 

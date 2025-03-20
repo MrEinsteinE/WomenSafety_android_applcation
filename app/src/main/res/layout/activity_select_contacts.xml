@@ -6,12 +6,12 @@
     android:padding="16dp"
     android:gravity="center_horizontal">
 
-    <!-- Button to Add Contacts -->
+    <!-- Button to Select Contacts -->
     <Button
-        android:id="@+id/add_contact_btn"
+        android:id="@+id/btn_select_contact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Contact"
+        android:text="Select Contact"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/purple_500"
         android:textColor="@color/white"
@@ -20,7 +20,7 @@
 
     <!-- ListView to Display Selected Contacts -->
     <ListView
-        android:id="@+id/contacts_list_view"
+        android:id="@+id/contact_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -29,10 +29,10 @@
 
     <!-- Button to Save Contacts -->
     <Button
-        android:id="@+id/done_button"
+        android:id="@+id/btn_save_contacts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Done"
+        android:text="Save Contacts"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/purple_500"
         android:textColor="@color/white"
