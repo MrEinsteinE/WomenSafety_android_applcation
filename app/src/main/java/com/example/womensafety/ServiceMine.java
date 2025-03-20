@@ -14,7 +14,6 @@ import android.location.Location;
 import android.os.Build;
 import android.os.IBinder;
 import android.telephony.SmsManager;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
@@ -58,23 +57,19 @@ public class ServiceMine extends Service {
 
         // Create ShakeDetector
         ShakeDetector.create(this, () -> {
+            // Load all contacts from SharedPreferences
             SharedPreferences sp = getSharedPreferences("MySharedPref", MODE_PRIVATE);
-            Set<String> contacts = sp.getStringSet("sos_contacts", new HashSet<>());
+            Set<String> contacts = sp.getStringSet("ENUM", new HashSet<>());
 
-            if (contacts.isEmpty()) {
-                Log.d("ServiceMine", "No SOS contacts found");
-            } else {
-                Log.d("ServiceMine", "Number of contacts: " + contacts.size());
-                for (String contact : contacts) {
-                    Log.d("ServiceMine", "Sending SMS to: " + contact);
-                    manager.sendTextMessage(
-                            contact,
-                            null,
-                            "I'm in Trouble!\nSending My Location:\n" + myLocation,
-                            null,
-                            null
-                    );
-                }
+            // Send SMS to each contact
+            for (String contact : contacts) {
+                manager.sendTextMessage(
+                        contact,
+                        null,
+                        "I'm in Trouble!\nSending My Location:\n" + myLocation,
+                        null,
+                        null
+                );
             }
         });
     }

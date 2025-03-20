@@ -1,36 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5"
     android:padding="16dp">
 
-    <!-- Button to Select Contacts -->
+    <!-- Select Contact Button -->
     <Button
         android:id="@+id/btn_select_contact"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Select Contact"
         android:textSize="18sp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:textColor="@android:color/white"/>
 
-    <!-- ListView to Display Selected Contacts -->
+    <!-- ListView to Display Contacts -->
     <ListView
-        android:id="@+id/contact_list"
+        android:id="@+id/contacts_list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_marginTop="10dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:layout_marginTop="10dp"/>
 
-    <!-- Button to Save Contacts -->
+    <!-- Save Contacts Button -->
     <Button
         android:id="@+id/btn_save_contacts"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save Contacts"
         android:textSize="18sp"
         android:padding="10dp"
-        android:layout_marginTop="10dp" />
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"/>
+
+    <!-- Clear Contacts Button -->
+    <Button
+        android:id="@+id/btn_clear_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear All Contacts"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

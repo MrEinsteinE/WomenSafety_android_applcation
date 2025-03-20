@@ -3,30 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5"
     android:padding="16dp">
 
     <Button
         android:id="@+id/add_contact_btn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Contact"
-        android:textSize="18sp"
-        android:padding="10dp"/>
+        android:text="Add Contact" />
 
-    <ListView
-        android:id="@+id/contacts_list_view"
+    <TextView
+        android:id="@+id/selected_contacts_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="20dp"
+        android:text="No contacts selected" />
 
     <Button
-        android:id="@+id/done_button"
-        android:layout_width="match_parent"
+        android:id="@+id/done_btn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save Contacts"
-        android:textSize="18sp"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"/>
+        android:text="Done"
+        android:layout_marginTop="20dp" />
+
 </LinearLayout>

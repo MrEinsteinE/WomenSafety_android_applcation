@@ -12,12 +12,10 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,11 +24,10 @@ public class SelectContactsActivity extends AppCompatActivity {
     private static final int MAX_CONTACTS = 5;
     private Set<String> contactSet = new HashSet<>();
 
-    private Button addContactBtn, doneButton;
-    private ListView listView;
-    private ArrayAdapter<String> adapter;
+    private Button addContactBtn, doneBtn;
+    private TextView selectedContactsTV;
 
-    // ActivityResultLauncher for picking a contact
+    // 1) Create an ActivityResultLauncher for picking a contact
     private final ActivityResultLauncher<Intent> contactPickerLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                     new ActivityResultCallback<ActivityResult>() {
@@ -49,12 +46,10 @@ public class SelectContactsActivity extends AppCompatActivity {
                                             String number = cursor.getString(numberIndex).replaceAll("\\s+", "");
                                             if (contactSet.size() < MAX_CONTACTS) {
                                                 contactSet.add(number);
-                                                adapter.notifyDataSetChanged(); // Update ListView
+                                                updateUI();
                                             } else {
                                                 Toast.makeText(SelectContactsActivity.this, "Max 5 contacts allowed!", Toast.LENGTH_SHORT).show();
                                             }
-                                        } else {
-                                            Toast.makeText(SelectContactsActivity.this, "No phone number found for this contact", Toast.LENGTH_SHORT).show();
                                         }
                                     } catch (Exception e) {
                                         Toast.makeText(SelectContactsActivity.this, "Error selecting contact", Toast.LENGTH_SHORT).show();
@@ -69,18 +64,10 @@ public class SelectContactsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_number);
 
-        // Initialize views
+        // Ensure IDs match the layout file
         addContactBtn = findViewById(R.id.add_contact_btn);
-        doneButton = findViewById(R.id.done_button);
-        listView = findViewById(R.id.contacts_list_view);
-
-        // Load saved contacts
-        SharedPreferences sp = getSharedPreferences("MySharedPref", MODE_PRIVATE);
-        contactSet = sp.getStringSet("sos_contacts", new HashSet<>());
-
-        // Set up the ListView adapter
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>(contactSet));
-        listView.setAdapter(adapter);
+        doneBtn = findViewById(R.id.done_btn);
+        selectedContactsTV = findViewById(R.id.selected_contacts_tv);
 
         // Set click listeners
         addContactBtn.setOnClickListener(v -> {
@@ -92,18 +79,29 @@ public class SelectContactsActivity extends AppCompatActivity {
             }
         });
 
-        doneButton.setOnClickListener(v -> {
+        doneBtn.setOnClickListener(v -> {
             saveContacts();
             finish();
         });
+    }
+    // Update the UI to show selected contacts
+    private void updateUI() {
+        if (contactSet.isEmpty()) {
+            selectedContactsTV.setText("No contacts selected");
+        } else {
+            StringBuilder builder = new StringBuilder("Selected Contacts:\n");
+            for (String contact : contactSet) {
+                builder.append(contact).append("\n");
+            }
+            selectedContactsTV.setText(builder.toString());
+        }
     }
 
     // Save contacts to SharedPreferences
     private void saveContacts() {
         SharedPreferences sp = getSharedPreferences("MySharedPref", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putStringSet("sos_contacts", contactSet);
+        editor.putStringSet("ENUM", contactSet);
         editor.apply();
-        Toast.makeText(this, "Contacts saved!", Toast.LENGTH_SHORT).show();
     }
 }

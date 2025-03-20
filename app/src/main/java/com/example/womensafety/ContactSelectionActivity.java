@@ -42,7 +42,7 @@ public class ContactSelectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select_contacts);
 
         listView = findViewById(R.id.contacts_list_view);
-        doneButton = findViewById(R.id.done_button);
+        doneButton = findViewById(R.id.done_btn);
 
         // 1. Check permission for READ_CONTACTS
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
