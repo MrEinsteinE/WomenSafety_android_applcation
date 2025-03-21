@@ -65,6 +65,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
             }
         });
+        // Find the Safer Places LinearLayout
+        LinearLayout saferPlacesLayout = findViewById(R.id.safer_places);
+
+        // Set click listener to redirect to crowded areas map
+        saferPlacesLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CrowdedAreasMapActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     /** Sets up the permission request launcher */
